@@ -1,5 +1,3 @@
-package fred;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,33 +19,27 @@ public class Main {
         int comparacoesInsertionSort = 0;
         int trocasInsertionSort = 0;
 
-        // Início do cronômetro
+        // Inicio do cronômetro
         long tempoInicialInsertionSort = System.currentTimeMillis();
 
-        // Executando o algoritmo de ordenação Insertion Sort
+        // Insertion Sort
         for (int i = 1; i < arrayInsertion.size(); i++) {
             int temporario = arrayInsertion.get(i);
             int j = i - 1;
 
             while (j >= 0 && arrayInsertion.get(j) > temporario) {
                 comparacoesInsertionSort++;
+                trocasInsertionSort++;
                 arrayInsertion.set(j + 1, arrayInsertion.get(j));
                 j--;
-                trocasInsertionSort++;
             }
             arrayInsertion.set(j + 1, temporario);
         }
         // Fim do cronômetro
         long tempoFinalInsertionSort = System.currentTimeMillis();
 
-        System.out.println("\nInsertion Sort: ");
-//
-//        for (int i : arrayInsertion) {
-//            System.out.print(i + " ");
-//        }
-//        System.out.println();
-     
-        System.out.println("Trocas de posicao       " + trocasInsertionSort);
+        System.out.println("\nInsertion Sort: ");  
+        System.out.println("Trocas de posicao:      " + trocasInsertionSort);
         System.out.println("Comparacoes realizadas: " + comparacoesInsertionSort);
         System.out.println("Tempo de execucao:      " + (tempoFinalInsertionSort - tempoInicialInsertionSort) + " milissegundos\n");
 
@@ -64,41 +56,53 @@ public class Main {
             for (int j = i + 1; j < arraySelection.length; j++) {
             	comparacoesSelectionSort++;
                 if (arraySelection[menor] > arraySelection[j]) {
-                	trocasSelectionSort++;
                     menor = j;
-
                 }
             }
-            int temporario = arraySelection[i];
-            arraySelection[i] = arraySelection[menor];
-            arraySelection[menor] = temporario;
+            
+            if (menor != i){
+            	int temporario = arraySelection[i];
+	            arraySelection[i] = arraySelection[menor];
+	            arraySelection[menor] = temporario;
+	            trocasSelectionSort++;
+            }
         }
         
-        // Início do cronômetro
+        // Final do cronômetro
         long tempoFinalSelectionSort = System.currentTimeMillis();
         
-//        System.out.print("selectionSort: ");
-//
-//        for (int i : arraySelection) {
-//            System.out.print(i + " ");
-//        }
-        
-        System.out.printf("\nSelection Sort: ");
-        
-        System.out.println("\nTrocas de posicao       " + trocasSelectionSort);
+        System.out.println("\nSelection Sort: ");        
+        System.out.println("Trocas de posica:       " + trocasSelectionSort);
         System.out.println("Comparacoes realizadas: " + comparacoesSelectionSort);
         System.out.println("Tempo de execucao:      " + (tempoFinalSelectionSort - tempoInicialSelectionSort) + " milissegundos\n");
 
         // Boubble Sort ================================================================================================================
 
-        int comparacoesBoubble = boubbleSort(arrayBubble);
-//        System.out.print("boubbleSort:   ");
-//        for (int i : arrayBubble) {
-//            System.out.print(i + " ");
-//        }
+        int comparacoesBubbleSort = 0;
+        int trocasBubbleSort = 0;
+        
+        // Final do cronômetro
+        long tempoInicialBubbleSort = System.currentTimeMillis();
 
-        System.out.println();
-//        System.out.print("\nComparacoes da Boubble Sort: " + comparacoesBoubble);
+        for (int i = 0; i < arrayBubble.length - 1; i++) {
+            for (int j = 0; j < arrayBubble.length - i - 1; j++) {
+            	comparacoesBubbleSort++;
+                if (arrayBubble[j] > arrayBubble[j + 1]) {
+                	trocasBubbleSort++;
+                    int temporario = arrayBubble[j];
+                    arrayBubble[j] = arrayBubble[j + 1];
+                    arrayBubble[j + 1] = temporario;
+                }
+            }
+        }
+        
+        // Final do cronômetro
+        long tempoFinalBubbleSort = System.currentTimeMillis();
+
+        System.out.println("\nBubble Sort: ");        
+        System.out.println("Trocas de posicao:      " + trocasBubbleSort);
+        System.out.println("Comparacoes realizadas: " + comparacoesBubbleSort);
+        System.out.println("Tempo de execucao:      " + (tempoFinalBubbleSort - tempoInicialBubbleSort) + " milissegundos\n");
     }
 
     public static List<Integer> generateRandomList(int size) {
@@ -108,23 +112,5 @@ public class Main {
             list.add(random.nextInt(10001));
         }
         return list;
-    }
-
-
-    public static int boubbleSort(int[] itens) {
-
-        int comparacoesBoubbleSort = 0;
-
-        for (int i = 0; i < itens.length - 1; i++) {
-            for (int j = 0; j < itens.length - i - 1; j++) {
-                if (itens[j] > itens[j + 1]) {
-                	comparacoesBoubbleSort++;
-                    int temporario = itens[j];
-                    itens[j] = itens[j + 1];
-                    itens[j + 1] = temporario;
-                }
-            }
-        }
-        return comparacoesBoubbleSort;
     }
 }
