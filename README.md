@@ -19,6 +19,8 @@ O algoritmo de bubble sort (ordenação por flutuação) compara cada dois valor
     <img src="https://github.com/JahnoMon/Roteiro-comparativo-dos-algoritmos-elementares-de-ordenacaoo/assets/115963954/41f35895-c0b0-418c-97e7-aa42d3f8b854" style="width: 50%;" alt="Imagem 2">
 </div>
 
+<p>E o desempenho, n° de trocas e comparações também é bem semelhante</p>
+
 <h3>Funcionamento do programa</h3>
 
 <p>Uma lista com 10.000 números aleatórios será criada automaticamente pelo método <strong>gerarLista</strong>, em seguida, as variáveis <strong>arrayInsertion</strong>, <strong>arraySelection</strong> e <strong>arrayBubble</strong> são instanciadas e recebem os valores dessa lista. A primeira variável recebe os valores diretamente e as duas outras por iteração à primeira.</p>
@@ -27,8 +29,8 @@ O algoritmo de bubble sort (ordenação por flutuação) compara cada dois valor
  posteirormente dão o resultado pela diferença do <strong>tempoInicial</strong> e <strong>tempoFinal</strong>.</p>
 <p>As quantidades de comparações, trocas e tempo de execução serão impressas no terminal ao final da execução.</p> 
 
-##Como rodar o programa
+#Como rodar o programa
 
-- Java IDE 17
+- JDK 17
 
 Basta baixá-lo, ou apenas copiar, colar e executá-lo na IDE de sua preferência ou mesmo em um compilador online.
