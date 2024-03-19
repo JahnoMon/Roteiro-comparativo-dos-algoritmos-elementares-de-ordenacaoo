@@ -27,6 +27,8 @@ O algoritmo de bubble sort (ordenação por flutuação) compara cada dois valor
  posteirormente dão o resultado pela diferença do <strong>tempoInicial</strong> e <strong>tempoFinal</strong>.</p>
 <p>As quantidades de comparações, trocas e tempo de execução serão impressas no terminal ao final da execução.</p> 
 
-<h3>Como rodar o programa</h3>
+##Como rodar o programa
+
+- Java IDE 17
 
 Basta baixá-lo, ou apenas copiar, colar e executá-lo na IDE de sua preferência ou mesmo em um compilador online.
